@@ -15,7 +15,7 @@ let customerData = {
 // Initialize app
 function initApp() {
     loadFromStorage();
-    renderCustomerList();
+    render();
 }
 
 // Local storage
