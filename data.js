@@ -20,7 +20,8 @@ const USE_CASES = [
         metrics: [
             { id: "metric1", label: "Customers with abandoned carts", defaultValue: 15000 },
             { id: "metric2", label: "Average Order Value ($)", defaultValue: 115 }
-        ]
+        ],
+        story: "With {metric1} customers abandoning carts and a {benchmark}% conversion rate, we can recover approximately {conversions} purchases. At ${metric2} AOV, this generates ${periodRevenue} per 14 days, or ${annualRevenue} annually."
     },
     {
         id: 2, name: "Abandoned Cart with Recommendations", code: "LACR", category: "acquire",
@@ -29,7 +30,8 @@ const USE_CASES = [
         metrics: [
             { id: "metric1", label: "Customers with abandoned carts", defaultValue: 15000 },
             { id: "metric2", label: "Average Order Value ($)", defaultValue: 115 }
-        ]
+        ],
+        story: "Adding AI recommendations to abandoned cart emails performs 8% better. From {metric1} cart abandoners at ${metric2} AOV, expect {conversions} conversions generating ${periodRevenue} per 14 days, or ${annualRevenue} annually."
     },
     {
         id: 3, name: "Abandoned Browse Flow", code: "LABF", category: "acquire",
@@ -38,7 +40,8 @@ const USE_CASES = [
         metrics: [
             { id: "metric1", label: "Browsers without purchase", defaultValue: 45000 },
             { id: "metric2", label: "Average Order Value ($)", defaultValue: 115 }
-        ]
+        ],
+        story: "From {metric1} browsers who didn't purchase, a {benchmark}% conversion rate yields {conversions} new customers. At ${metric2} AOV, this means ${periodRevenue} per 14 days, or ${annualRevenue} annually."
     },
     {
         id: 4, name: "Welcome Flow", code: "LWEF", category: "acquire",
@@ -47,7 +50,8 @@ const USE_CASES = [
         metrics: [
             { id: "metric1", label: "New subscribers without purchase", defaultValue: 490 },
             { id: "metric2", label: "Average Order Value ($)", defaultValue: 115 }
-        ]
+        ],
+        story: "A welcome flow converts {benchmark}% of {metric1} new subscribers into first-time buyers. That's {conversions} new customers at ${metric2} AOV, generating ${periodRevenue} per 90 days, or ${annualRevenue} annually."
     },
     { id: 5, name: "Omnichannel Abandoned Cart Flow", code: "OACO", category: "acquire", channel: "Omnichannel", description: "Multi-channel cart recovery (Email, SMS, Push)", hasLift: false },
     { id: 6, name: "Abandoned Browse SMS", code: "LSAB", category: "acquire", channel: "SMS", description: "SMS reminder for browsed products", hasLift: false },
@@ -75,7 +79,8 @@ const USE_CASES = [
             { id: "metric1", label: "Total unique buyers", defaultValue: 10000 },
             { id: "metric2", label: "Repeat buyers", defaultValue: 2000 },
             { id: "metric3", label: "Average Order Value ($)", defaultValue: 115 }
-        ]
+        ],
+        story: "With {metric2} repeat buyers out of {metric1} total, a {benchmark}% uplift in repurchase rate adds {conversions} additional returning buyers. At ${metric3} AOV, this generates ${periodRevenue} per 90 days, or ${annualRevenue} annually."
     },
     {
         id: 31, name: "Birthday Campaign", code: "LBDC", category: "retention",
@@ -84,7 +89,8 @@ const USE_CASES = [
         metrics: [
             { id: "metric1", label: "Customers with birthdays", defaultValue: 2153 },
             { id: "metric2", label: "Average Order Value ($)", defaultValue: 115 }
-        ]
+        ],
+        story: "Birthday campaigns achieve {benchmark}% conversion. From {metric1} customers with birthdays, expect {conversions} purchases at ${metric2} AOV, generating ${periodRevenue} per 90 days, or ${annualRevenue} annually."
     },
     {
         id: 32, name: "Purchase Anniversary Recommendations", code: "LPAC", category: "retention",
@@ -93,7 +99,8 @@ const USE_CASES = [
         metrics: [
             { id: "metric1", label: "Customers with anniversary", defaultValue: 6990 },
             { id: "metric2", label: "Average Order Value ($)", defaultValue: 115 }
-        ]
+        ],
+        story: "Anniversary emails convert at {benchmark}%. From {metric1} customers reaching their purchase anniversary, expect {conversions} repeat purchases at ${metric2} AOV, generating ${periodRevenue} per 90 days, or ${annualRevenue} annually."
     },
     {
         id: 33, name: "Retention Campaign for Repeat Purchasers", code: "LRRP", category: "retention",
@@ -102,7 +109,8 @@ const USE_CASES = [
         metrics: [
             { id: "metric1", label: "Repeat buyers (not recent)", defaultValue: 32210 },
             { id: "metric2", label: "Average Order Value ($)", defaultValue: 115 }
-        ]
+        ],
+        story: "Retention campaigns convert {benchmark}% of {metric1} repeat buyers who haven't purchased recently. That's {conversions} additional purchases at ${metric2} AOV, generating ${periodRevenue} per 90 days, or ${annualRevenue} annually."
     },
     { id: 34, name: "Post-Purchase NPS Survey", code: "WNPS", category: "retention", channel: "Email", description: "Gather feedback after purchase", hasLift: false },
     { id: 35, name: "Weather Influenced Campaign", code: "OWIC", category: "retention", channel: "Email", description: "Weather-based product recommendations", hasLift: false },
@@ -122,7 +130,8 @@ const USE_CASES = [
             { id: "metric1", label: "Lapsing/Lapsed subscribers", defaultValue: 16580 },
             { id: "metric2", label: "Avg revenue - Lapsed ($)", defaultValue: 81 },
             { id: "metric3", label: "Avg revenue - Active ($)", defaultValue: 145 }
-        ]
+        ],
+        story: "Reactivating {metric1} lapsed subscribers at {benchmark}% yields {conversions} reactivated customers. The revenue difference between active (${metric3}) and lapsed (${metric2}) customers generates ${periodRevenue} per 90 days, or ${annualRevenue} annually."
     },
     { id: 51, name: "Reactivation with Contextual Personalization", code: "OCPT", category: "reactivate", channel: "Email", description: "AI-powered personalized win-back offers", hasLift: false },
     { id: 52, name: "RFM Omnichannel Winback", code: "OWBO", category: "reactivate", channel: "Omnichannel", description: "Multi-channel RFM-based reactivation", hasLift: false },
@@ -142,7 +151,8 @@ const USE_CASES = [
         metrics: [
             { id: "metric1", label: "Disengaged subscribers", defaultValue: 16872 },
             { id: "metric2", label: "Average Order Value ($)", defaultValue: 115 }
-        ]
+        ],
+        story: "Re-engaging {metric1} disengaged subscribers at {benchmark}% conversion yields {conversions} recovered customers. At ${metric2} AOV, this generates ${periodRevenue} per 180 days, or ${annualRevenue} annually."
     },
     {
         id: 61, name: "Automated Favorite Brand Newsletter", code: "LBAN", category: "reengage",
@@ -151,7 +161,8 @@ const USE_CASES = [
         metrics: [
             { id: "metric1", label: "Active email subscribers", defaultValue: 19200 },
             { id: "metric2", label: "Average Order Value ($)", defaultValue: 115 }
-        ]
+        ],
+        story: "Favorite brand newsletters convert {benchmark}% of {metric1} active subscribers. That's {conversions} purchases at ${metric2} AOV, generating ${periodRevenue} every 14 days, or ${annualRevenue} annually."
     },
     {
         id: 62, name: "Automated Newsletter - New Items", code: "LCAN", category: "reengage",
@@ -160,7 +171,8 @@ const USE_CASES = [
         metrics: [
             { id: "metric1", label: "Active email subscribers", defaultValue: 19200 },
             { id: "metric2", label: "Average Order Value ($)", defaultValue: 115 }
-        ]
+        ],
+        story: "New items newsletters convert {benchmark}% of {metric1} subscribers into buyers. That's {conversions} purchases at ${metric2} AOV, generating ${periodRevenue} every 14 days, or ${annualRevenue} annually."
     },
     { id: 63, name: "Email & SMS Reactivation Campaign", code: "LOPR", category: "reengage", channel: "Omnichannel", description: "Multi-channel reactivation flow", hasLift: false },
     { id: 64, name: "Warmup Campaign for Klaviyo", code: "OWCK", category: "reengage", channel: "Email", description: "Gradual migration from Klaviyo", hasLift: false },
@@ -174,7 +186,8 @@ const USE_CASES = [
         metrics: [
             { id: "metric1", label: "Total email subscribers", defaultValue: 45000 },
             { id: "metric2", label: "Average Order Value ($)", defaultValue: 115 }
-        ]
+        ],
+        story: "Bi-weekly newsletters convert {benchmark}% of {metric1} total subscribers. That's {conversions} purchases at ${metric2} AOV, generating ${periodRevenue} every 14 days, or ${annualRevenue} annually."
     },
     { id: 71, name: "Paid Ad Optimization with Predictions", code: "OPAP", category: "drive_traffic", channel: "Ad Audiences", description: "AI-optimized ad targeting", hasLift: false },
     { id: 72, name: "Paid Ads Based on Email Engagement", code: "LABE", category: "drive_traffic", channel: "Ad Audiences", description: "Target non-email openers with ads", hasLift: false },
