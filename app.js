@@ -32,15 +32,15 @@ function renderGoalSelection() {
                 <h1 class="text-3xl font-bold mb-2 text-gray-900">Virtual BC</h1>
                 <p class="text-gray-600 mb-8">Select your business goals</p>
 
-                <div class="grid grid-cols-2 gap-4 mb-8">
+                <div class="grid grid-cols-3 gap-4 mb-8">
                     ${GOAL_CATEGORIES.map(g => `
                         <div onclick="toggleGoal('${g.id}')"
-                             class="goal-card p-6 border-2 rounded-xl cursor-pointer transition-all
+                             class="goal-card p-5 border-2 rounded-xl cursor-pointer transition-all
                                     ${selectedGoals.includes(g.id) ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:border-blue-300'}">
-                            <div class="text-3xl mb-2">${g.icon}</div>
-                            <h3 class="text-xl font-bold text-gray-900">${g.name}</h3>
-                            <p class="text-sm text-gray-600 mt-1">${g.description}</p>
-                            <div class="mt-3 text-xs text-gray-500">
+                            <div class="text-2xl mb-2">${g.icon}</div>
+                            <h3 class="text-lg font-bold text-gray-900">${g.name}</h3>
+                            <p class="text-xs text-gray-600 mt-1">${g.description}</p>
+                            <div class="mt-2 text-xs text-gray-500">
                                 ${getUseCasesByCategory(g.id).length} use cases
                             </div>
                         </div>
