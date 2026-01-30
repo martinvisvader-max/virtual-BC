@@ -261,17 +261,20 @@ function renderPresentation() {
                     <div class="text-sm text-blue-300 mt-1">${totalConversions.toLocaleString()} additional conversions</div>
                 </div>
 
-                <div class="grid grid-cols-2 gap-4 mb-8">
+                <div class="space-y-4 mb-8">
                     ${liftResults.map(r => {
                         const cat = GOAL_CATEGORIES.find(c => c.id === r.useCase.category);
+                        const story = generateStory(r);
                         return `
                         <div class="bg-white/10 rounded-lg p-4">
-                            <div class="flex items-center gap-2 mb-2">
-                                <span>${cat.icon}</span>
-                                <span class="font-semibold text-sm">${r.useCase.name}</span>
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="flex items-center gap-2">
+                                    <span>${cat.icon}</span>
+                                    <span class="font-semibold">${r.useCase.name}</span>
+                                </div>
+                                <div class="text-2xl font-bold text-green-400">$${Math.round(r.annualRevenue).toLocaleString()}/yr</div>
                             </div>
-                            <div class="text-2xl font-bold text-green-400">$${Math.round(r.annualRevenue).toLocaleString()}</div>
-                            <div class="text-xs text-blue-300">${r.conversions} conversions / ${r.useCase.period}</div>
+                            <p class="text-sm text-blue-100 leading-relaxed">${story}</p>
                         </div>
                     `}).join('')}
                 </div>
@@ -290,6 +293,22 @@ function renderPresentation() {
             </div>
         </div>
     `;
+}
+
+function generateStory(result) {
+    const r = result;
+    const uc = r.useCase;
+    if (!uc.story) return '';
+
+    let story = uc.story;
+    story = story.replace(/{metric1}/g, r.metrics.metric1?.toLocaleString() || '0');
+    story = story.replace(/{metric2}/g, r.metrics.metric2?.toLocaleString() || '0');
+    story = story.replace(/{metric3}/g, r.metrics.metric3?.toLocaleString() || '0');
+    story = story.replace(/{benchmark}/g, uc.benchmark.value);
+    story = story.replace(/{conversions}/g, r.conversions.toLocaleString());
+    story = story.replace(/{periodRevenue}/g, '$' + Math.round(r.periodRevenue).toLocaleString());
+    story = story.replace(/{annualRevenue}/g, '$' + Math.round(r.annualRevenue).toLocaleString());
+    return story;
 }
 
 function startOver() {
